@@ -19,6 +19,7 @@ jobs:
         run: python3 app.py
 
       - name: Deploy to Server Using SSH
+        if: ${{ secrets.SERVER_HOST != '' && secrets.SERVER_USER != '' && secrets.SERVER_SSH_KEY != '' }}
         uses: appleboy/ssh-action@v1.0.3
 
         with:
